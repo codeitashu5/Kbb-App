@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.QuestionFragment">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+       android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@android:color/holo_purple"
+        tools:text="What traversal over trie gives the lexicographical sorting of the set of the strings?"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        >
+        <Button
+            android:id="@+id/btn1"
+            tools:text="a) Priority queue"
+            android:layout_margin="10dp"
+            style="@style/button_style" />
+
+        <Button
+            android:id="@+id/btn2"
+            style="@style/button_style"
+            android:layout_margin="10dp"
+            tools:text="b) Stack"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        >
+
+        <Button
+            android:id="@+id/btn3"
+            style="@style/button_style"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            tools:text="c) A decreasing order array" />
+
+        <Button
+            android:id="@+id/btn4"
+            style="@style/button_style"
+            android:layout_margin="10dp"
+            tools:text="d) Normal Array"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+
+
+
+
