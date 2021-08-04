@@ -25,7 +25,7 @@ class GameFrontFragment : Fragment(),ItemClickedListener {
    private val binding : FragmentGameFrontBinding get() = _binding!!
    lateinit var  recyclerView : RecyclerView
 
-   var pair = Pair(-1,true)
+   var acces = -1
 
 
    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -68,7 +68,7 @@ class GameFrontFragment : Fragment(),ItemClickedListener {
 
     override fun onItemClicked(pos: Int) {
 
-        if(pos == pair.first+1 && pair.second == true){
+        if(pos <= acces+1){
             val action = GameFrontFragmentDirections.actionGameFrontFragmentToQuestionFragment(pos)
             findNavController().navigate(action)
         }
@@ -84,14 +84,22 @@ class GameFrontFragment : Fragment(),ItemClickedListener {
             if(status){
                 val str = list[pos].str
                 list[pos] = Item(str,R.drawable.check)
-                pair = Pair(pos,status)
+                recyclerView.adapter = CustomAdapter(list,this)
+                acces = pos
             }
             else{
                 val str = list[pos].str
                 list[pos] = Item(str,R.drawable.ic_red_checkmark)
+
+                for(i in pos+1..list.size-1){
+                    list[i].image = R.drawable.kbc
+                }
+                recyclerView.adapter = CustomAdapter(list,this)
+
+                acces = pos-1
             }
 
-            recyclerView.adapter?.notifyItemChanged(pos)
+
         }
 
     }
