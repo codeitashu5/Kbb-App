@@ -15,7 +15,8 @@
             app:destination="@id/questionFragment" />
         <argument
             android:name="position"
-            app:argType="integer" />
+            app:argType="integer"
+            android:defaultValue="-1" />
         <argument
             android:name="status"
             app:argType="boolean" />

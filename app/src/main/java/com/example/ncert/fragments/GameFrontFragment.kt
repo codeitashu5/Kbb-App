@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,8 +23,9 @@ class GameFrontFragment : Fragment(),ItemClickedListener {
 
    private var _binding : FragmentGameFrontBinding? = null
    private val binding : FragmentGameFrontBinding get() = _binding!!
+   lateinit var  recyclerView : RecyclerView
 
-  lateinit var  recyclerView : RecyclerView
+   var pair = Pair(-1,true)
 
 
    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -36,21 +38,27 @@ class GameFrontFragment : Fragment(),ItemClickedListener {
    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        //the action is put-ing the arguments so the changes can be made
+        var pos = 1
+        var status = true
+
+
+
         //here we put our code
         recyclerView = binding.recyclerView
         recyclerView.adapter = CustomAdapter(list,this)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        //the action is put-ing the arguments so the changes can be made
 
-        var pos = 1
-        var status = true
 
-        arguments?.let{
-            pos = it.getInt("position")
-            status = it.getBoolean("status")
-            makeChanges(pos,status)
-        }
+            arguments?.let{
+                pos = it.getInt("position")
+                status = it.getBoolean("status")
+                makeChanges(pos,status)
+            }
+
+
+
     }
 
     override fun onDestroyView() {
@@ -59,21 +67,32 @@ class GameFrontFragment : Fragment(),ItemClickedListener {
     }
 
     override fun onItemClicked(pos: Int) {
-         val action = GameFrontFragmentDirections.actionGameFrontFragmentToQuestionFragment(pos)
-         findNavController().navigate(action)
+
+        if(pos == pair.first+1 && pair.second == true){
+            val action = GameFrontFragmentDirections.actionGameFrontFragmentToQuestionFragment(pos)
+            findNavController().navigate(action)
+        }
+        else{
+            Toast.makeText(requireContext(), "Pahle baki toa kar le", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     private fun makeChanges(pos:Int,status:Boolean){
-       if(status){
-           val str = list[pos].str
-           list[pos] = Item(str,R.drawable.check)
-       }
-       else{
-            val str = list[pos].str
-            list[pos] = Item(str,R.drawable.ic_red_checkmark)
-        }
 
-        recyclerView.adapter = CustomAdapter(list,this)
+        if(pos!=-1){
+            if(status){
+                val str = list[pos].str
+                list[pos] = Item(str,R.drawable.check)
+                pair = Pair(pos,status)
+            }
+            else{
+                val str = list[pos].str
+                list[pos] = Item(str,R.drawable.ic_red_checkmark)
+            }
+
+            recyclerView.adapter?.notifyItemChanged(pos)
+        }
 
     }
 

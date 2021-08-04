@@ -17,6 +17,7 @@ import com.example.ncert.R
              Item("2,500,000",R.drawable.kbc),
              Item("5,000,000",R.drawable.kbc),
              Item("1-crore",R.drawable.kbc),
+             Item("7-crore",R.drawable.kbc)
          )
 
          val image : Int  = R.drawable.ic_launcher_foreground
