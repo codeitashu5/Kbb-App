@@ -9,13 +9,15 @@
 
 
     <TextView
+        android:id="@+id/text"
+        android:padding="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24sp"
+        android:background="@drawable/frame"
        android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:textColor="@android:color/holo_purple"
         tools:text="What traversal over trie gives the lexicographical sorting of the set of the strings?"
         />
 
@@ -28,12 +30,14 @@
         <Button
             android:id="@+id/btn1"
             tools:text="a) Priority queue"
+            android:backgroundTint="@android:color/holo_blue_light"
             android:layout_margin="10dp"
             style="@style/button_style" />
 
         <Button
             android:id="@+id/btn2"
             style="@style/button_style"
+            android:backgroundTint="@android:color/holo_orange_dark"
             android:layout_margin="10dp"
             tools:text="b) Stack"
 
@@ -53,12 +57,14 @@
             android:id="@+id/btn3"
             style="@style/button_style"
             android:layout_gravity="center"
+            android:backgroundTint="@android:color/holo_orange_dark"
             android:layout_margin="10dp"
             tools:text="c) A decreasing order array" />
 
         <Button
             android:id="@+id/btn4"
             style="@style/button_style"
+            android:backgroundTint="@android:color/holo_blue_light"
             android:layout_margin="10dp"
             tools:text="d) Normal Array"
             />

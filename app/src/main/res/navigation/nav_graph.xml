@@ -9,5 +9,28 @@
         android:id="@+id/gameFrontFragment"
         android:name="com.example.ncert.fragments.GameFrontFragment"
         android:label="fragment_game_front"
-        tools:layout="@layout/fragment_game_front" />
+        tools:layout="@layout/fragment_game_front" >
+        <action
+            android:id="@+id/action_gameFrontFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
+        <argument
+            android:name="position"
+            app:argType="integer" />
+        <argument
+            android:name="status"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="com.example.ncert.fragments.QuestionFragment"
+        android:label="fragment_question"
+        tools:layout="@layout/fragment_question" >
+        <action
+            android:id="@+id/action_questionFragment_to_gameFrontFragment"
+            app:destination="@id/gameFrontFragment" />
+        <argument
+            android:name="position"
+            app:argType="integer" />
+
+    </fragment>
 </navigation>
