@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ncert.R
 
-class CustomAdapter(val list: MutableList<String>,val o:ItemClickedListener) : RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
+class CustomAdapter(val list: MutableList<Item>,val o:ItemClickedListener) : RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
 
    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
        init {
@@ -29,8 +29,8 @@ class CustomAdapter(val list: MutableList<String>,val o:ItemClickedListener) : R
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
        val text =  holder.itemView.findViewById<TextView>(R.id.text)
         val image = holder.itemView.findViewById<ImageView>(R.id.image)
-        text.text = list[position]
-        image.setImageResource(Data.image)
+        text.text = list[position].str
+        image.setImageResource(list[position].image)
     }
     override fun getItemCount(): Int {
        return list.size

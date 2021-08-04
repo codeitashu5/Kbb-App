@@ -5,19 +5,22 @@ import com.example.ncert.R
  class Data {
      companion object{
          val list  = mutableListOf(
-             "5000",
-             "10,000",
-             "20,000",
-             "40,000",
-             "80,000",
-             "160,000",
-             "320,000",
-             "640,000",
-             "1,250,000",
-             "2,500,000",
-             "5,000,000",
-             "1-crore",
-             "7-crore")
+             Item("5000",R.drawable.ic_launcher_foreground),
+             Item( "10,000",R.drawable.ic_launcher_foreground),
+             Item( "20,000",R.drawable.ic_launcher_foreground),
+             Item("40,000",R.drawable.ic_launcher_foreground),
+             Item("5000",R.drawable.ic_launcher_foreground),
+             Item("80,000",R.drawable.ic_launcher_foreground),
+             Item("160,000",R.drawable.ic_launcher_foreground),
+             Item("320,000", R.drawable.ic_launcher_foreground),
+             Item("640,000",R.drawable.ic_launcher_foreground),
+             Item("1,250,000",R.drawable.ic_launcher_foreground),
+             Item("2,500,000",R.drawable.ic_launcher_foreground),
+             Item("5,000,000",R.drawable.ic_launcher_foreground),
+             Item("1-crore",R.drawable.ic_launcher_foreground),
+             Item("7-crore",R.drawable.ic_launcher_foreground)
+
+         )
 
          val image : Int  = R.drawable.ic_launcher_foreground
 
